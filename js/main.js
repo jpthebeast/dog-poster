@@ -9,7 +9,7 @@ if (cta) {
     }
   });
 }
-// Countdown timer for coming soon page
+
 const countdown = document.getElementById('countdown');
 if (countdown) {
   const targetDate = new Date();
