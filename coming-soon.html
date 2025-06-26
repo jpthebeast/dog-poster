@@ -26,7 +26,12 @@
       <h1>Festival Poster Pack Coming Soon (Rakhi Edition)</h1>
       <div id="countdown"></div>
       <p>Drop your WhatsApp number to get early access:</p>
-      <input type="text" placeholder="WhatsApp number" disabled>
+      <form id="whatsapp-form" autocomplete="off">
+        <input type="text" id="whatsapp-input" placeholder="WhatsApp number" required>
+        <div class="error" id="whatsapp-error"></div>
+        <button type="submit" id="whatsapp-submit">Notify Me</button>
+        <div class="success-message" id="whatsapp-success"></div>
+      </form>
     </section>
   </main>
   <footer>

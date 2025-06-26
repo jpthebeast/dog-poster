@@ -49,4 +49,89 @@ if (savedTheme) {
   setTheme(savedTheme);
 } else {
   setTheme('light');
-} 
+}
+
+const whatsappForm = document.getElementById('whatsapp-form');
+const whatsappInput = document.getElementById('whatsapp-input');
+const whatsappError = document.getElementById('whatsapp-error');
+const whatsappSuccess = document.getElementById('whatsapp-success');
+const whatsappSubmit = document.getElementById('whatsapp-submit');
+
+function validateWhatsAppNumber(number) {
+  number = number.trim();
+  const match = number.match(/^(\+91|0)?([6-9][0-9]{9})$/);
+  return match ? '+91' + match[2] : false;
+}
+
+function showError(msg) {
+  whatsappError.textContent = msg;
+  whatsappSuccess.textContent = '';
+}
+function showSuccess(msg) {
+  whatsappError.textContent = '';
+  whatsappSuccess.textContent = msg;
+}
+
+if (whatsappForm) {
+  whatsappInput.removeAttribute('disabled');
+  whatsappInput.addEventListener('input', function () {
+    const formatted = validateWhatsAppNumber(whatsappInput.value);
+    if (!whatsappInput.value.trim()) {
+      showError('');
+      whatsappSubmit.disabled = false;
+      whatsappSubmit.classList.remove('success');
+      whatsappSubmit.textContent = 'Notify Me';
+      return;
+    }
+    if (!formatted) {
+      showError('Enter a valid WhatsApp number (start with +91 or 0, 10 digits)');
+      whatsappSubmit.disabled = true;
+    } else {
+      showError('');
+      whatsappSubmit.disabled = false;
+    }
+    whatsappSubmit.classList.remove('success');
+    whatsappSubmit.textContent = 'Notify Me';
+  });
+
+  whatsappForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formatted = validateWhatsAppNumber(whatsappInput.value);
+    if (!formatted) {
+      showError('Enter a valid WhatsApp number (start with +91 or 0, 10 digits)');
+      return;
+    }
+
+    whatsappSubmit.disabled = true;
+    whatsappSubmit.textContent = 'Submitting...';
+
+    const webhookUrl = 'https://script.google.com/macros/s/AKfycbzNVkmNwkQdjImu3NSe1MawB3XQmUSVbsOF2UFW9tnG9BIwDf9LlWltQ_1K1C1BXZ2k/exec';
+
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        number: formatted,
+        timestamp: new Date().toISOString(),
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 'success' || data === 'OK') {
+          showSuccess('🎉 You’re on the list! We’ll message you when new dog posters drop.');
+          whatsappSubmit.disabled = true;
+          whatsappSubmit.classList.add('success');
+          whatsappSubmit.textContent = 'Registered!';
+          whatsappInput.disabled = true;
+        } else {
+          throw new Error(data.message || 'Server error');
+        }
+      })
+      .catch((err) => {
+        console.error('Submission failed:', err);
+        showError('Something went wrong. Please try again!');
+        whatsappSubmit.disabled = false;
+        whatsappSubmit.textContent = 'Notify Me';
+      });
+  });
+}

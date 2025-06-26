@@ -15,11 +15,15 @@ html {
   font-size: 16px;
   background: var(--bg);
   color: var(--text);
+  height: 100%;
 }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 header nav {
   display: flex;
@@ -256,6 +260,7 @@ footer {
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
   padding: 1.2em 1em 1em 1em;
+  flex-shrink: 0;
 }
 .footer-content {
   display: flex;
@@ -449,7 +454,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1em 1.5em;
+  padding: 1em 1.5em 0.5em 1.5em;
   background: var(--orange);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
@@ -459,12 +464,14 @@ footer {
   font-size: 1.5em;
   color: var(--btn-text);
   text-decoration: none;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.2em;
 }
 .center-nav ul {
   list-style: none;
   display: flex;
-  gap: 1em;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
   margin: 0;
   padding: 0;
 }
@@ -473,9 +480,64 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding-bottom: 1em;
   }
   .center-nav .logo {
     margin-bottom: 0;
     margin-right: 2em;
   }
+  .center-nav ul {
+    flex-direction: row;
+    gap: 1em;
+  }
+}
+.coming-soon-banner form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7em;
+  margin-top: 1em;
+}
+.coming-soon-banner input[type="text"] {
+  padding: 0.7em 1em;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  font-size: 1em;
+  width: 80%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+.coming-soon-banner button[type="submit"] {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.7em 2em;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5em;
+  transition: background 0.2s;
+}
+.coming-soon-banner button[type="submit"].success {
+  background: #43a047;
+  color: #fff;
+  cursor: not-allowed;
+}
+.coming-soon-banner .error {
+  color: #d32f2f;
+  font-size: 0.98em;
+  margin-top: 0.2em;
+  min-height: 1.2em;
+  text-align: center;
+}
+.coming-soon-banner .success-message {
+  color: #388e3c;
+  font-size: 1.1em;
+  margin-top: 0.7em;
+  text-align: center;
+}
+main {
+  flex: 1 0 auto;
 } 
