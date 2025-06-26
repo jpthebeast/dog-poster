@@ -104,6 +104,7 @@ if (whatsappForm) {
 
     whatsappSubmit.disabled = true;
     whatsappSubmit.textContent = 'Submitting...';
+    //webhook url for google sheet
 
     const webhookUrl = 'https://script.google.com/macros/s/AKfycbwKqVgODS6AS7T0qYTsWM_n3MdlmpBhNbNfw-nnmYT5UbIoHqgdG32u2t5Wfn8crD5s/exec';
 
