@@ -105,7 +105,7 @@ if (whatsappForm) {
     whatsappSubmit.disabled = true;
     whatsappSubmit.textContent = 'Submitting...';
 
-    const webhookUrl = 'https://script.google.com/macros/s/AKfycbzNVkmNwkQdjImu3NSe1MawB3XQmUSVbsOF2UFW9tnG9BIwDf9LlWltQ_1K1C1BXZ2k/exec';
+    const webhookUrl = 'https://script.google.com/macros/s/AKfycbwKqVgODS6AS7T0qYTsWM_n3MdlmpBhNbNfw-nnmYT5UbIoHqgdG32u2t5Wfn8crD5s/exec';
 
     fetch(webhookUrl, {
       method: 'POST',
