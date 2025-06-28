@@ -260,46 +260,12 @@
     <div class="footer-content">
       <span>&copy; 2024 Desi Dog Posters</span>
       <div class="footer-links">
-        <a href="#" class="footer-link" data-modal="contact">Contact</a> |
-        <a href="#" class="footer-link" data-modal="terms">Terms</a> |
-        <a href="#" class="footer-link" data-modal="refund">Refund</a> |
-        <a href="#" class="footer-link" data-modal="delivery">Delivery</a>
+        <a href="contact.html" class="footer-link">Contact</a> |
+        <a href="terms.html" class="footer-link">Terms</a> |
+        <a href="refund.html" class="footer-link">Refund</a> |
+        <a href="delivery.html" class="footer-link">Delivery</a>
       </div>
     </div>
   </footer>
-  <!-- Modal Popup -->
-  <div id="modal-overlay" class="modal-overlay" style="display:none;">
-    <div class="modal-box">
-      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-      <div id="modal-content"></div>
-    </div>
-  </div>
-  <script>
-    const modalContent = {
-      contact: `<h3>📩 Contact Us</h3><p><strong>Email:</strong> <a href='mailto:justmailus4@gmail.com'>justmailus4@gmail.com</a><br><strong>WhatsApp:</strong> <a href='https://wa.me/919952476561' target='_blank'>+91 9952476561</a></p>`,
-      terms: `<h3>Terms and Conditions</h3><p>By purchasing from Desi Dog Posters, you agree not to redistribute, resell, or alter the posters for commercial use. All digital downloads are for personal use only. We reserve the right to change our terms and pricing at any time. By completing the payment, you enter into a binding agreement to access the digital product. For issues or concerns, contact us at <a href='mailto:justmailus4@gmail.com'>justmailus4@gmail.com</a>.</p>`,
-      refund: `<h3>Refund Policy</h3><p>Since our products are digital downloads, refunds are generally not allowed. However, if your download link is broken or you receive the wrong files, email us within 3 days at <a href='mailto:justmailus4@gmail.com'>justmailus4@gmail.com</a>, and we'll fix it or refund you.</p>`,
-      delivery: `<h3>Delivery</h3><p>Our posters are instantly delivered via a Google Drive download link after payment. If you don't receive access within 10 minutes, check your spam folder. If you still have issues, email <a href='mailto:justmailus4@gmail.com'>justmailus4@gmail.com</a> and we'll help you immediately.</p>`
-    };
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.footer-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const type = this.getAttribute('data-modal');
-          document.getElementById('modal-content').innerHTML = modalContent[type] || '';
-          document.getElementById('modal-overlay').style.display = 'flex';
-        });
-      });
-      document.getElementById('modal-close').onclick = function() {
-        document.getElementById('modal-overlay').style.display = 'none';
-      };
-      document.getElementById('modal-overlay').onclick = function(e) {
-        if (e.target === this) this.style.display = 'none';
-      };
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') document.getElementById('modal-overlay').style.display = 'none';
-      });
-    });
-  </script>
 </body>
 </html> 
