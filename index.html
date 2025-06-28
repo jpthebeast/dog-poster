@@ -16,6 +16,94 @@
     .faq-q { font-weight: 600; color: var(--orange); }
     .faq-a { margin-left: 0.5em; }
     .final-cta { text-align: center; margin: 2.5em 0 1.5em 0; }
+    .product-card .poster-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      margin-bottom: 0;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .product-grid.center {
+        flex-direction: column;
+        gap: 1.2em;
+      }
+      .product-card {
+        max-width: 95vw;
+        min-width: 0;
+        padding: 0.7em;
+      }
+      .product-card .poster-img {
+        height: 38vw;
+        min-height: 120px;
+        max-height: 220px;
+      }
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+      margin-top: 1.2em;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 1em;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+      padding: 1em 1.2em;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7em;
+      font-size: 1.08em;
+    }
+    .faq-q {
+      font-weight: 600;
+      color: var(--orange);
+      min-width: 120px;
+      display: inline-block;
+    }
+    .faq-a {
+      color: #333;
+      flex: 1;
+      display: inline-block;
+    }
+    .poster-preview-row {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      margin: 1.5em 0 0.5em 0;
+      flex-wrap: wrap;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+    }
+    .poster-preview-row .poster-img {
+      width: 100%;
+      max-width: 220px;
+      min-width: 120px;
+      height: auto;
+      border-radius: var(--border-radius);
+      object-fit: cover;
+      background: none;
+      box-shadow: none;
+      margin: 0 auto;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .poster-preview-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2em;
+      }
+      .poster-preview-row .poster-img {
+        width: 90vw;
+        max-width: 98vw;
+        min-width: 0;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -24,22 +112,16 @@
     <section class="hero" id="hero">
       <img src="images/hero-banner.png.png" alt="Golden retriever with funny dog posters on wall" class="hero-banner">
       <h1>Funny Indian Dog Poster Pack</h1>
-      <p>10 hilarious, printable posters for Indian pet parents. Only ₹49.</p>
-      <a href="#buy" class="cta">Buy Now – ₹49</a>
+      <p>He doesn't pay rent. But he runs the house.<br>🎉 10 hilarious posters every Indian dog parent will love – Just ₹49</p>
+      <a href="https://www.instamojo.com/your-link" class="cta" target="_blank" rel="noopener">Buy Now – ₹49</a>
     </section>
     <!-- Poster Preview -->
     <section class="product-showcase" id="buy">
       <h2>See What You Get</h2>
-      <div class="product-grid center">
-        <div class="product-card">
-          <img src="images/he-doesnt-pay-rent.png.png" alt="He doesn't pay rent poster">
-        </div>
-        <div class="product-card">
-          <img src="images/happy-birthday-doggo.png.png" alt="Happy Birthday Doggo poster">
-        </div>
-        <div class="product-card">
-          <img src="images/diwali-dog.png.png" alt="Diwali Dog poster">
-        </div>
+      <div class="product-grid center poster-preview-row">
+        <img src="images/he-doesnt-pay-rent.png.png" alt="He doesn't pay rent poster" class="poster-img">
+        <img src="images/happy-birthday-doggo.png.png" alt="Happy Birthday Doggo poster" class="poster-img">
+        <img src="images/diwali-dog.png.png" alt="Diwali Dog poster" class="poster-img">
       </div>
       <div class="preview-note">Low-res preview. Full pack includes 10 high-res, watermark-free posters!</div>
       <div class="final-cta">
@@ -82,12 +164,14 @@
     </section>
     <!-- FAQ -->
     <section class="faq">
-      <h2>FAQ</h2>
-      <div class="faq-item"><span class="faq-q">Will I get instant download?</span><span class="faq-a">Yes! As soon as you pay, you'll get a link to download all 10 posters instantly.</span></div>
-      <div class="faq-item"><span class="faq-q">Is this printed or digital?</span><span class="faq-a">Digital only. You can print at home or use as wallpapers.</span></div>
-      <div class="faq-item"><span class="faq-q">Can I gift these to a friend?</span><span class="faq-a">Absolutely! Print, share, or forward the files as you like.</span></div>
-      <div class="faq-item"><span class="faq-q">What's the size/format?</span><span class="faq-a">High-res JPG & PNG, A4 printable + mobile sizes.</span></div>
-      <div class="faq-item"><span class="faq-q">Is this only for Indian pet parents?</span><span class="faq-a">Anyone can buy, but the jokes are desi!</span></div>
+      <h2><span style="font-size:1.3em;">❓</span> FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item"><span class="faq-q">⚡ Will I get instant download?</span><span class="faq-a">Yes! As soon as you pay, you'll get a link to download all 10 posters instantly.</span></div>
+        <div class="faq-item"><span class="faq-q">🖨️ Is this printed or digital?</span><span class="faq-a">Digital only. You can print at home or use as wallpapers.</span></div>
+        <div class="faq-item"><span class="faq-q">🎁 Can I gift these to a friend?</span><span class="faq-a">Absolutely! Print, share, or forward the files as you like.</span></div>
+        <div class="faq-item"><span class="faq-q">📏 What's the size/format?</span><span class="faq-a">High-res JPG & PNG, A4 printable + mobile sizes.</span></div>
+        <div class="faq-item"><span class="faq-q">🇮🇳 Is this only for Indian pet parents?</span><span class="faq-a">Anyone can buy, but the jokes are desi!</span></div>
+      </div>
     </section>
     <!-- Final CTA -->
     <div class="final-cta">
